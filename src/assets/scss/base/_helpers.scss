@@ -1,0 +1,5 @@
+@import './_spacings.scss';
+
+@function grid($number) {
+  @return rem($--grid-size * $number);
+}

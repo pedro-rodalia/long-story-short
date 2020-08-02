@@ -1,0 +1,25 @@
+// Font family
+$--font-sans: 'Montserrat' !default;
+$--font-serif: 'Cormorant Garamond' !default;
+%font-sans { font-family: $--font-sans; }
+%font-serif { font-family: $--font-serif; }
+
+// Font sizes
+$--text-xs: .75rem !default; // 12px
+$--text-sm: .875rem !default; // 14px
+$--text-base: 1rem !default; // 16px
+$--text-lg: 1.125rem !default; // 18px
+$--text-xl: 1.25rem !default; // 20px
+$--text-2xl: 1.5rem !default; // 24px
+$--text-3xl: 1.875rem !default; // 30px
+$--text-4xl: 2.25rem !default; // 36px
+$--text-5xl: 3rem !default; // 48px
+$--text-6xl: 3.75rem !default; // 60px
+$--text-7xl: 4rem !default; // 72px
+
+// Font Weights
+$--font-light: 300 !default;
+$--font-regular: 400 !default;
+$--font-medium: 500 !default;
+$--font-semibold: 600 !default;
+$--font-bold: 700 !default;
