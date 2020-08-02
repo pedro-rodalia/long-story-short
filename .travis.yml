@@ -7,4 +7,4 @@ cache:
 script:
   - npm run test:unit
 after_script:
-  - cat ./tests/unit/coverage/lcov.info | coveralls
+  - cat ./tests/unit/coverage/lcov.info | npx coveralls
