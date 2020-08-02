@@ -1,9 +1,5 @@
 <template lang="html">
-  <router-link
-    class="story-card"
-    active-class="story-card--active"
-    :to="{ name: 'Story', params: { title } }"
-  >
+  <router-link class="story-card" active-class="story-card--active" :to="{ name: 'Story', params }">
     <h1 class="story-card__title">{{ story.title }}</h1>
     <p class="story-card__abstract">{{ story.content }}</p>
   </router-link>
@@ -22,6 +18,10 @@ export default {
     title() {
       return this.story.title.replace(/\s+/g, '-').toLowerCase()
     },
+    params() {
+      const [author, title] = this.story.id.split('/')
+      return { title, author }
+    },
   },
 }
 </script>
@@ -37,8 +37,21 @@ export default {
   padding: $--spacing-50 $--spacing-150;
   margin: $--spacing-100 0;
   cursor: pointer;
+  transition: 0.3s border-color;
   &--active {
     border-color: $--black;
+    transition: 0.5s border-color;
+    &:hover {
+      &#{&} {
+        box-shadow: none;
+      }
+    }
+  }
+  &:hover {
+    box-shadow: $--shadow-md;
+  }
+  &:active {
+    box-shadow: none;
   }
   &__title {
     font-size: $--text-xl;

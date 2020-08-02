@@ -2,7 +2,7 @@
   <div class="navigation">
     <div class="navigation__group" v-for="{ group, stories } in groupedStories" :key="group">
       <spacer>{{ group }}</spacer>
-      <story-card v-for="{ id, ...story } in stories" :key="id" :story="story"></story-card>
+      <story-card v-for="story in stories" :key="story.id" :story="story"></story-card>
     </div>
   </div>
 </template>
