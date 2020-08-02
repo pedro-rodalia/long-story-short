@@ -1,8 +1,12 @@
 <template lang="html">
-  <div class="story-card" :class="{ 'story-card--active': active }">
+  <router-link
+    class="story-card"
+    active-class="story-card--active"
+    :to="{ name: 'Story', params: { title } }"
+  >
     <h1 class="story-card__title">{{ story.title }}</h1>
     <p class="story-card__abstract">{{ story.content }}</p>
-  </div>
+  </router-link>
 </template>
 
 <script>
@@ -13,9 +17,10 @@ export default {
       type: Object,
       required: true,
     },
-    active: {
-      type: Boolean,
-      default: false,
+  },
+  computed: {
+    title() {
+      return this.story.title.replace(/\s+/g, '-').toLowerCase()
     },
   },
 }
@@ -23,11 +28,18 @@ export default {
 
 <style lang="scss" scoped>
 .story-card {
+  color: $--black;
+  text-decoration: none;
+  display: block;
   border-radius: $--border-radius;
   background-color: $--white;
+  border: 1px solid $--white;
   padding: $--spacing-50 $--spacing-150;
   margin: $--spacing-100 0;
   cursor: pointer;
+  &--active {
+    border-color: $--black;
+  }
   &__title {
     font-size: $--text-xl;
     font-weight: $--font-semibold;
