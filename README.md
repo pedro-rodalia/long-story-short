@@ -1,5 +1,8 @@
 # long-story-short
 
+[![Build Status](https://travis-ci.org/pedro-rodalia/long-story-short.svg?branch=master)](https://travis-ci.org/pedro-rodalia/long-story-short)
+[![Coverage Status](https://coveralls.io/repos/github/pedro-rodalia/long-story-short/badge.svg)](https://coveralls.io/github/pedro-rodalia/long-story-short)
+
 ## Project setup
 ```
 npm install
