@@ -15,9 +15,6 @@ export default {
     },
   },
   computed: {
-    title() {
-      return this.story.title.replace(/\s+/g, '-').toLowerCase()
-    },
     params() {
       const [author, title] = this.story.id.split('/')
       return { title, author }
@@ -28,6 +25,8 @@ export default {
 
 <style lang="scss" scoped>
 .story-card {
+  box-sizing: border-box;
+  height: $--spacing-800;
   color: $--black;
   text-decoration: none;
   display: block;
@@ -41,17 +40,9 @@ export default {
   &--active {
     border-color: $--black;
     transition: 0.5s border-color;
-    &:hover {
-      &#{&} {
-        box-shadow: none;
-      }
-    }
   }
   &:hover {
     box-shadow: $--shadow-md;
-  }
-  &:active {
-    box-shadow: none;
   }
   &__title {
     font-size: $--text-xl;
@@ -59,11 +50,10 @@ export default {
   }
   &__abstract {
     font-size: $--text-sm;
-    font-weight: $--font-light;
     overflow: hidden;
     display: -webkit-box;
     text-overflow: ellipsis;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
   }
 }

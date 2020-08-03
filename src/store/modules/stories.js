@@ -2,28 +2,26 @@ import Stories from '@/../__mocks__/stories.js'
 
 const state = {
   stories: Stories,
-}
-
-const getters = {
-  stories: state => state.stories,
-  storyById: state => id => state.stories.find(story => story.id === id),
-}
-
-const actions = {
-  createStory({ commit }, { title, content }) {
-    commit('ADD_STORY', { title, content })
+  story: {
+    title: '',
+    content: '',
   },
 }
 
+const getters = {
+  stories: (state) => state.stories,
+  story: (state) => state.story,
+}
+
 const mutations = {
-  ADD_STORY(state, { title, content }) {
-    state.stories.push({ title, content })
+  updateStory(state, { title, content }) {
+    state.story.title = title
+    state.story.content = content
   },
 }
 
 export default {
   state,
   getters,
-  actions,
   mutations,
 }

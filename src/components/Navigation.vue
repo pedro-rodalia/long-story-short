@@ -1,8 +1,11 @@
 <template lang="html">
   <div class="navigation">
-    <div class="navigation__group" v-for="{ group, stories } in groupedStories" :key="group">
-      <spacer>{{ group }}</spacer>
-      <story-card v-for="story in stories" :key="story.id" :story="story"></story-card>
+    <write-story-btn />
+    <div class="navigation__scroll">
+      <div class="navigation__group" v-for="{ group, stories } in groupedStories" :key="group">
+        <spacer>{{ group }}</spacer>
+        <story-card v-for="story in stories" :key="story.id" :story="story"></story-card>
+      </div>
     </div>
   </div>
 </template>
@@ -10,10 +13,11 @@
 <script>
 import moment from 'moment'
 import StoryCard from '@/components/StoryCard'
+import WriteStoryBtn from '@/components/WriteStoryBtn'
 import Spacer from '@/components/Spacer'
 export default {
   name: 'Navigation',
-  components: { StoryCard, Spacer },
+  components: { StoryCard, Spacer, WriteStoryBtn },
   props: {
     stories: {
       type: Array,
@@ -53,9 +57,14 @@ export default {
 .navigation {
   height: 100%;
   position: relative;
-  overflow: scroll;
+  display: flex;
+  flex-direction: column;
   max-width: $--spacing-3200;
   background-color: $--gray-200;
   padding: 0 $--spacing-200;
+  overflow: hidden;
+  &__scroll {
+    overflow: scroll;
+  }
 }
 </style>

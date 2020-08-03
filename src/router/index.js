@@ -14,6 +14,13 @@ const routes = [
   {
     path: '/story/:author/:title',
     name: 'Story',
+    props: true,
+    component: Story,
+  },
+  {
+    path: '/story/write',
+    name: 'Write',
+    props: { editable: true },
     component: Story,
   },
 ]

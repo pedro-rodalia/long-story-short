@@ -3,70 +3,93 @@ $font-weight-regular: 400 !default;
 $font-weight-medium: 500 !default;
 $font-weight-semibold: 600 !default;
 $font-weight-bold: 700 !default;
+$font-weight-extrabold: 800 !default;
+$font-weight-black: 900 !default;
 $font_path: '/../fonts/';
 
 // SERIF
 
 @font-face {
   font-family: 'LSS Serif';
-  src: url($font_path+'serif/'+'CormorantGaramond-Bold.ttf') format('truetype');
+  src: url($font_path+'serif/'+'PlayfairDisplay-Black.ttf') format('truetype');
+  font-weight: $font-weight-black;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LSS Serif';
+  src: url($font_path+'serif/'+'PlayfairDisplay-BlackItalic.ttf') format('truetype');
+  font-weight: $font-weight-black;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'LSS Serif';
+  src: url($font_path+'serif/'+'PlayfairDisplay-ExtraBold.ttf') format('truetype');
+  font-weight: $font-weight-extrabold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LSS Serif';
+  src: url($font_path+'serif/'+'PlayfairDisplay-ExtraBoldItalic.ttf') format('truetype');
+  font-weight: $font-weight-extrabold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'LSS Serif';
+  src: url($font_path+'serif/'+'PlayfairDisplay-Bold.ttf') format('truetype');
   font-weight: $font-weight-bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'LSS Serif';
-  src: url($font_path+'serif/'+'CormorantGaramond-BoldItalic.ttf') format('truetype');
+  src: url($font_path+'serif/'+'PlayfairDisplay-BoldItalic.ttf') format('truetype');
   font-weight: $font-weight-bold;
   font-style: italic;
 }
 
 @font-face {
   font-family: 'LSS Serif';
-  src: url($font_path+'serif/'+'CormorantGaramond-SemiBold.ttf') format('truetype');
+  src: url($font_path+'serif/'+'PlayfairDisplay-SemiBold.ttf') format('truetype');
   font-weight: $font-weight-semibold;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'LSS Serif';
-  src: url($font_path+'serif/'+'CormorantGaramond-SemiBoldItalic.ttf') format('truetype');
+  src: url($font_path+'serif/'+'PlayfairDisplay-SemiBoldItalic.ttf') format('truetype');
   font-weight: $font-weight-semibold;
   font-style: italic;
 }
 
 @font-face {
   font-family: 'LSS Serif';
-  src: url($font_path+'serif/'+'CormorantGaramond-Medium.ttf') format('truetype');
+  src: url($font_path+'serif/'+'PlayfairDisplay-Medium.ttf') format('truetype');
   font-weight: $font-weight-medium;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'LSS Serif';
-  src: url($font_path+'serif/'+'CormorantGaramond-MediumItalic.ttf') format('truetype');
+  src: url($font_path+'serif/'+'PlayfairDisplay-MediumItalic.ttf') format('truetype');
   font-weight: $font-weight-medium;
   font-style: italic;
 }
 
 @font-face {
   font-family: 'LSS Serif';
-  src: url($font_path+'serif/'+'CormorantGaramond-Regular.ttf') format('truetype');
+  src: url($font_path+'serif/'+'PlayfairDisplay-Regular.ttf') format('truetype');
   font-weight: $font-weight-regular;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'LSS Serif';
-  src: url($font_path+'serif/'+'CormorantGaramond-Light.ttf') format('truetype');
-  font-weight: $font-weight-light;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'LSS Serif';
-  src: url($font_path+'serif/'+'CormorantGaramond-LightItalic.ttf') format('truetype');
-  font-weight: $font-weight-light;
+  src: url($font_path+'serif/'+'PlayfairDisplay-RegularItalic.ttf') format('truetype');
+  font-weight: $font-weight-regular;
   font-style: italic;
 }
 
