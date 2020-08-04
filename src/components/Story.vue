@@ -10,59 +10,20 @@
     />
     <div class="story__content" ref="content">
       <div class="editor">
-        <editor-menu-bubble
-          :editor="editor"
-          :keep-in-bounds="keepInBounds"
-          v-slot="{ commands, isActive, menu }"
-          v-if="editable"
-        >
-          <div
-            class="menububble"
-            :class="{ 'is-active': menu.isActive }"
-            :style="`left: ${menu.left}px; bottom: ${menu.bottom}px;`"
-          >
-            <button class="menububble__button" :class="{ 'is-active': isActive.bold() }" @click="commands.bold">
-              <span class="icon--bold">B</span>
-            </button>
-            <button class="menububble__button" :class="{ 'is-active': isActive.strike() }" @click="commands.strike">
-              <span class="icon--strike">S</span>
-            </button>
-            <button
-              class="menububble__button"
-              :class="{ 'is-active': isActive.underline() }"
-              @click="commands.underline"
-            >
-              <span class="icon--underline">U</span>
-            </button>
-            <button
-              class="menububble__button"
-              :class="{ 'is-active': isActive.paragraph() }"
-              @click="commands.paragraph"
-            >
-              <span class="icon--paragraph">ℙ</span>
-            </button>
-            <button
-              v-for="(heading, idx) in headings"
-              class="menububble__button"
-              :key="idx"
-              :class="{ 'is-active': isActive.heading({ level: heading }) }"
-              @click="commands.heading({ level: heading })"
-            >
-              <span class="icon--heading">H{{ heading }}</span>
-            </button>
-            <button class="menububble__button" @click="commands.horizontal_rule">
-              <span class="icon--rh">Separador</span>
-            </button>
-          </div>
+        <editor-menu-bubble :editor="editor" :keep-in-bounds="keepInBounds" v-slot="{ menu }" v-if="editable">
+          <tools bubble :editor="editor" :menu="menu" />
         </editor-menu-bubble>
         <editor-content class="editor__content" :editor="editor" />
       </div>
     </div>
+    <toolbar :editor="editor" v-if="editable" />
   </div>
 </template>
 
 <script>
 import FullStory from '@/../__mocks__/full-story'
+import Toolbar from '@/components/Toolbar'
+import Tools from '@/components/Tools'
 import { mapMutations } from 'vuex'
 import { Editor, EditorContent, EditorMenuBubble } from 'tiptap'
 import {
@@ -80,6 +41,8 @@ export default {
   components: {
     EditorContent,
     EditorMenuBubble,
+    Toolbar,
+    Tools,
   },
   props: {
     editable: {
@@ -122,11 +85,6 @@ export default {
         onUpdate: ({ getHTML }) => this.sync(getHTML()),
       }),
     }
-  },
-  computed: {
-    headings() {
-      return this.editor.extensions.extensions.find(({ name }) => name === 'heading').options.levels
-    },
   },
   mounted() {
     this.init()
