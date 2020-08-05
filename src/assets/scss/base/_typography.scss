@@ -5,6 +5,7 @@ $--font-serif: 'Playfair Display' !default;
 %font-serif { font-family: $--font-serif; }
 
 // Font sizes
+$--text-2xs: .5rem !default; // 8px
 $--text-xs: .75rem !default; // 12px
 $--text-sm: .875rem !default; // 14px
 $--text-base: 1rem !default; // 16px

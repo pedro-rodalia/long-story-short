@@ -39,11 +39,11 @@ export default {
   min-height: $--spacing-800;
   color: $--black;
   text-decoration: none;
-  border-radius: $--border-radius;
+  border-radius: $--border-radius-base;
   background-color: $--white;
   border: 1px solid $--white;
   padding: $--spacing-50 $--spacing-150;
-  margin: $--spacing-100 0;
+  margin: $--spacing-100 $--spacing-200;
   cursor: pointer;
   &:hover {
     box-shadow: $--shadow-md;

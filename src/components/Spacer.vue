@@ -14,7 +14,7 @@ export default {
 .spacer {
   @extend %font-sans;
   padding: $--spacing-150 0 $--spacing-50 0;
-  margin: 0 0 $--spacing-50 0;
+  margin: 0 $--spacing-200 $--spacing-50 $--spacing-200;
   text-align: right;
   font-weight: $--font-light;
   font-size: $--text-2xl;

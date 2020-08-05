@@ -18,13 +18,13 @@
 
 .menu {
   $menu: #{&};
-  position: absolute;
   display: flex;
   z-index: 20;
   border-radius: 5px;
   padding: 0.3rem;
   margin-bottom: 0.5rem;
   &--bubble {
+    position: absolute;
     transform: translateX(-50%);
   }
   transition: opacity 0.2s, visibility 0.2s;

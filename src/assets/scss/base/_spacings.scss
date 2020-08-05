@@ -1,7 +1,11 @@
 $--grid-size: 0.5rem !default; /* 8px */
-$--border-radius: 0.5rem !default; /* 8px */
+
+// Border
+$--border-radius-sm: 0.25rem !default; /* 8px */
+$--border-radius-base: 0.5rem !default; /* 8px */
 
 // Spacings
+$--spacing-12: 0.125rem !default; /* 2px */
 $--spacing-25: 0.25rem !default; /* 4px */
 $--spacing-50: 0.5rem !default; /* 8px */
 $--spacing-75: 0.75rem !default; /* 12px */

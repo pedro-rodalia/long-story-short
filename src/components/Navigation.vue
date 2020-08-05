@@ -61,7 +61,6 @@ export default {
   flex-direction: column;
   max-width: $--spacing-3200;
   background-color: $--gray-200;
-  padding: 0 $--spacing-200;
   overflow: hidden;
   &__scroll {
     overflow: scroll;
