@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import Navigation from '@/components/Navigation'
 export default {
   name: 'Home',
@@ -17,6 +17,14 @@ export default {
 
   computed: {
     ...mapGetters(['stories']),
+  },
+
+  methods: {
+    ...mapActions(['getStories']),
+  },
+
+  mounted() {
+    this.getStories()
   },
 }
 </script>

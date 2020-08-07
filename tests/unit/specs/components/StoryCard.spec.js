@@ -11,6 +11,6 @@ describe('StoryCard test suite', () => {
   })
   test('The Story Card component shows the title and an abstract of the content', () => {
     expect(wrapper.find('.story-card__title').text()).toBe(Stories[0].title)
-    expect(wrapper.find('.story-card__abstract').text()).toBe(Stories[0].content)
+    expect(wrapper.find('.story-card__abstract').text()).toBe(Stories[0].abstract)
   })
 })

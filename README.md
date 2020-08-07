@@ -1,5 +1,6 @@
 # long-story-short
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d37e46d2-be71-4eb0-910b-5aee7c217056/deploy-status)](https://app.netlify.com/sites/stoic-mestorf-92d332/deploys)
 [![Build Status](https://travis-ci.org/pedro-rodalia/long-story-short.svg?branch=master)](https://travis-ci.org/pedro-rodalia/long-story-short)
 [![Coverage Status](https://coveralls.io/repos/github/pedro-rodalia/long-story-short/badge.svg)](https://coveralls.io/github/pedro-rodalia/long-story-short)
 

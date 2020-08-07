@@ -1,9 +1,9 @@
 <template lang="html">
   <div class="toolbar">
-    <tools class="toolbar__menu" :editor="editor" v-if="true" />
+    <tools v-if="true" class="toolbar__menu" :editor="editor" />
     <div class="toolbar__buttons">
-      <button class="toolbar__btn toolbar__btn--secondary">Publicar</button>
-      <button class="toolbar__btn">Guardar borrador</button>
+      <button class="toolbar__btn toolbar__btn--secondary" @click="$emit('publish')">Publicar</button>
+      <button class="toolbar__btn" @click="$emit('save')">Guardar borrador</button>
       <button class="toolbar__btn toolbar__btn--danger">Eliminar</button>
     </div>
   </div>

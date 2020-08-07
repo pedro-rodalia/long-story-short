@@ -1,30 +1,29 @@
 <template>
-  <div class="story" ref="container">
+  <div ref="container" class="story">
     <input
-      class="story__title"
       ref="title"
       v-model="title_"
+      class="story__title"
       placeholder="Título"
       :readonly="!editable"
       @input="update"
     />
-    <div class="story__content" ref="content">
+    <div ref="content" class="story__content">
       <div class="editor">
-        <editor-menu-bubble :editor="editor" :keep-in-bounds="keepInBounds" v-slot="{ menu }" v-if="editable">
+        <editor-menu-bubble v-if="editable" v-slot="{ menu }" :editor="editor" :keep-in-bounds="keepInBounds">
           <tools bubble :editor="editor" :menu="menu" />
         </editor-menu-bubble>
         <editor-content class="editor__content" :editor="editor" />
       </div>
     </div>
-    <toolbar :editor="editor" v-if="editable" />
+    <toolbar v-if="editable" :editor="editor" @publish="save(true)" @save="save" />
   </div>
 </template>
 
 <script>
-import FullStory from '@/../__mocks__/full-story'
 import Toolbar from '@/components/Toolbar'
 import Tools from '@/components/Tools'
-import { mapMutations } from 'vuex'
+import { mapMutations, mapActions } from 'vuex'
 import { Editor, EditorContent, EditorMenuBubble } from 'tiptap'
 import {
   HardBreak,
@@ -57,6 +56,10 @@ export default {
       type: String,
       default: null,
     },
+    id: {
+      type: String,
+      default: null,
+    },
   },
   data() {
     return {
@@ -71,8 +74,8 @@ export default {
           new HorizontalRule(),
           new Italic(),
           new Strike(),
-          new Underline(),
           new History(),
+          new Underline(),
           new Placeholder({
             emptyEditorClass: 'is-editor-empty',
             emptyNodeClass: 'is-empty',
@@ -86,33 +89,32 @@ export default {
       }),
     }
   },
+  watch: {
+    title() {
+      this.init()
+    },
+  },
   mounted() {
     this.init()
   },
   beforeDestroy() {
     this.editor.destroy()
   },
-  watch: {
-    title() {
-      this.init()
-    },
-  },
   methods: {
     ...mapMutations(['updateStory']),
+    ...mapActions(['publish', 'save', 'getStory']),
     async init() {
       this.$refs.content.style.marginTop = `${this.$refs.title.clientHeight}px`
       this.$refs.container.addEventListener('scroll', this.setTitleFontSize)
-      this.editor.setOptions({ editable: this.editable })
-      if (this.title) {
-        const { title, content } = await new Promise((resolve) =>
-          resolve({ title: 'A la luz del sol', content: FullStory })
-        )
+      if (this.id) {
+        const { title, text } = await this.getStory(this.id)
         this.title_ = title
-        this.content_ = content
+        this.content_ = text
       } else {
         this.title_ = ''
         this.content_ = ''
       }
+      this.editor.setOptions({ editable: this.editable })
       this.editor.setContent(this.content_)
     },
     sync(content) {

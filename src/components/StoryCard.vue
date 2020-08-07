@@ -4,7 +4,7 @@
       <h1 class="story-card__title">{{ story.title }}</h1>
       <p v-if="!story.published" class="story-card__badge">borrador</p>
     </div>
-    <p class="story-card__abstract">{{ story.content }}</p>
+    <p class="story-card__abstract">{{ story.abstract }}</p>
   </router-link>
 </template>
 
@@ -19,8 +19,9 @@ export default {
   },
   computed: {
     params() {
-      const [author, title] = this.story.id.split('/')
-      return { title, author }
+      const title = this.story.title.toLowerCase().replace(/\s+/g, '-')
+      const author = this.story.author.toLowerCase().replace(/\s+/g, '-')
+      return { title, author, id: this.story._id }
     },
   },
 }
