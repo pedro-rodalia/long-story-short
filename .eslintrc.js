@@ -5,7 +5,7 @@ module.exports = {
     node: true
   },
 
-  extends: ["plugin:vue/essential", "eslint:recommended", "@vue/prettier"],
+  extends: ['plugin:vue/essential', 'eslint:recommended', '@vue/prettier'],
 
   parserOptions: {
     parser: 'babel-eslint'
@@ -13,7 +13,9 @@ module.exports = {
 
   rules: {
     'no-console': 'off',
-    'no-debugger': 'off'
+    'no-debugger': 'off',
+    'no-unused-vars': ['error', { 'ignoreRestSiblings': true }],
+    'vue/no-template-shadow': 'off'
   },
 
   overrides: [

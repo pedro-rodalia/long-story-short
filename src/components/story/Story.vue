@@ -21,8 +21,8 @@
 </template>
 
 <script>
-import Toolbar from '@/components/Toolbar'
-import Tools from '@/components/Tools'
+import Toolbar from '@/components/toolbar/Toolbar'
+import Tools from '@/components/tools/Tools'
 import { mapMutations, mapActions } from 'vuex'
 import { Editor, EditorContent, EditorMenuBubble } from 'tiptap'
 import {
@@ -101,7 +101,7 @@ export default {
     this.editor.destroy()
   },
   methods: {
-    ...mapMutations(['updateStory']),
+    ...mapMutations(['updateStory', 'clearStory']),
     ...mapActions(['publish', 'save', 'getStory']),
     async init() {
       this.$refs.content.style.marginTop = `${this.$refs.title.clientHeight}px`
@@ -111,6 +111,7 @@ export default {
         this.title_ = title
         this.content_ = text
       } else {
+        this.clearStory()
         this.title_ = ''
         this.content_ = ''
       }

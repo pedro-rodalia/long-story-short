@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Story from '@/components/Story.vue'
+import Story from '@/components/story/Story'
 import Home from '@/views/Home.vue'
 
 Vue.use(VueRouter)
@@ -27,6 +27,7 @@ const routes = [
 
 const router = new VueRouter({
   routes,
+  // mode: 'history',
 })
 
 export default router

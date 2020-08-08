@@ -23,51 +23,17 @@
   border-radius: 5px;
   padding: 0.3rem;
   margin-bottom: 0.5rem;
+  transition: opacity 0.2s, visibility 0.2s;
   &--bubble {
     position: absolute;
     transform: translateX(-50%);
+    box-shadow: $--shadow-md;
+    border: 1px solid $--black;
+    border-radius: $--border-radius-sm;
   }
-  transition: opacity 0.2s, visibility 0.2s;
-  &.is-hidden {
+  &.hidden {
     opacity: 0;
     visibility: hidden;
-  }
-  &--dark {
-    background: $--black;
-    & #{$menu}__button {
-      color: $--white;
-      &:hover {
-        background-color: rgba($--white, 0.1);
-      }
-      &.is-active {
-        background-color: rgba($--white, 0.2);
-      }
-    }
-  }
-  &--light{
-    background: transparent;
-    & #{$menu}__button {
-      color: $--black;
-      &:hover {
-        background-color: rgba($--black, 0.05);
-      }
-      &.is-active {
-        background-color: rgba($--black, 0.1);
-      }
-    }
-  }
-  &__button {
-    display: inline-flex;
-    background: transparent;
-    border: 0;
-    font-weight: bold;
-    padding: 0.2rem 0.5rem;
-    margin-right: 0.2rem;
-    border-radius: 3px;
-    cursor: pointer;
-    &:last-child {
-      margin-right: 0;
-    }
   }
   span#{&}__button {
     font-size: 13.3333px;

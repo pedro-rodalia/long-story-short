@@ -2,18 +2,19 @@
   <div class="toolbar">
     <tools v-if="true" class="toolbar__menu" :editor="editor" />
     <div class="toolbar__buttons">
-      <button class="toolbar__btn toolbar__btn--secondary" @click="$emit('publish')">Publicar</button>
-      <button class="toolbar__btn" @click="$emit('save')">Guardar borrador</button>
-      <button class="toolbar__btn toolbar__btn--danger">Eliminar</button>
+      <base-button type="secondary" @click="$emit('publish')">Publicar</base-button>
+      <base-button @click="$emit('save')">Guardar borrador</base-button>
+      <base-button type="danger">Eliminar</base-button>
     </div>
   </div>
 </template>
 
 <script>
-import Tools from '@/components/Tools'
+import Tools from '@/components/tools/Tools'
+import BaseButton from '@/components/base-button/BaseButton'
 export default {
   name: 'Toolbar',
-  components: { Tools },
+  components: { Tools, BaseButton },
   props: {
     editor: {
       type: Object,
@@ -44,26 +45,6 @@ export default {
   }
   &__buttons {
     margin-left: auto;
-  }
-  &__btn {
-    background: $--white;
-    border: 1px solid $--black;
-    border-radius: $--border-radius-sm;
-    padding: $--spacing-50 $--spacing-75;
-    font-weight: $--font-semibold;
-    margin: 0 $--spacing-25;
-    cursor: pointer;
-    &:hover {
-      box-shadow: $--shadow-md;
-    }
-    &--danger {
-      border-color: $--red-600;
-      color: $--red-600;
-    }
-    &--secondary {
-      background-color: $--black;
-      color: $--white;
-    }
   }
 }
 </style>

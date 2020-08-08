@@ -1,11 +1,10 @@
 import axios from 'axios'
 
+const baseStoryState = () => ({ title: '', content: '' })
+
 const state = {
   stories: [],
-  story: {
-    title: '',
-    content: '',
-  },
+  story: baseStoryState(),
 }
 
 const getters = {
@@ -38,6 +37,12 @@ const actions = {
 const mutations = {
   setStories(state, stories) {
     state.stories = stories
+  },
+  setStory(state, story) {
+    state.story = story
+  },
+  clearStory(state) {
+    state.story = baseStoryState()
   },
   updateStory(state, { title, content }) {
     state.story.title = title

@@ -1,5 +1,5 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils'
-import StoryCard from '@/components/StoryCard'
+import StoryCard from '@/components/story-card/StoryCard'
 import Stories from 'stories'
 
 const localVue = createLocalVue()

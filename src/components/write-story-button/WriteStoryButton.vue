@@ -7,26 +7,32 @@
       </div>
     </template>
     <template v-else>
-      <h1 class="write-btn__title">
-        {{ story.title }}
+      <h1 class="write-btn__title" :class="{ placeholder: !story.title }">
+        {{ title }}
       </h1>
-      <p class="write-btn__abstract">
-        {{ story.content | strip }}
+      <p class="write-btn__abstract" :class="{ placeholder: !strip(story.content) }">
+        {{ content }}
       </p>
     </template>
   </router-link>
 </template>
 
 <script>
-import { StripFilter } from '@/mixins/filters'
+import { StripMethod } from '@/mixins/methods'
 import { mapGetters } from 'vuex'
 export default {
-  name: 'WriteStoryBtn',
-  mixins: [StripFilter],
+  name: 'WriteStoryButton',
+  mixins: [StripMethod],
   computed: {
     ...mapGetters(['story']),
     isWritting() {
       return this.$route.name === 'Write'
+    },
+    title() {
+      return this.story.title || 'Título'
+    },
+    content() {
+      return this.strip(this.story.content) || 'Contenido'
     },
   },
 }
@@ -85,6 +91,9 @@ export default {
     text-overflow: ellipsis;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+  }
+  & .placeholder {
+    color: $--gray-500;
   }
 }
 </style>
